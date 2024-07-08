@@ -2,7 +2,7 @@
 
 # Visual Studio Project Renaming Script
 
-This PowerShell script is designed to help developers easily rename C# projects, such as MAUI or WPF projects, within Visual Studio. The script automates the process of replacing content within files, renaming files, and renaming folders, making it especially useful when rebranding or restructuring projects.
+This repository contains two PowerShell scripts designed to help developers easily rename C# projects, such as MAUI or WPF projects, within Visual Studio. The scripts automate the process of replacing content within files, renaming files, renaming folders, and removing source control bindings, making it especially useful when rebranding or restructuring projects.
 
 ## Features
 
@@ -10,10 +10,11 @@ This PowerShell script is designed to help developers easily rename C# projects,
 - **Replace Content in Files:** Searches for and replaces specified old content with new content in all files, excluding those in `Resources` folders.
 - **Rename Files:** Renames files by replacing specified old content with new content in the filenames, excluding those in `Resources` folders.
 - **Rename Folders:** Renames folders by replacing specified old content with new content in the folder names, excluding those in `Resources` folders.
+- **Remove Source Control Bindings:** Removes Team Foundation Version Control (TFVC) bindings from solution files and deletes related source control files (`.vspscc` and `.vssscc`).
 
 ## Prerequisites
 
-Before running the script, you need to set up your PowerShell environment to allow script execution and ensure you run the script with administrative privileges.
+Before running the scripts, you need to set up your PowerShell environment to allow script execution and ensure you run the script with administrative privileges.
 
 ### 1. Enable Script Execution
 
@@ -41,10 +42,21 @@ To run the script with the necessary permissions, you need to open PowerShell as
    cd visual-studio-project-renaming
    ```
 
-2. **Run the Script:**
-   Open a PowerShell terminal as an administrator and execute the script/ Right click "Run as Powershell Script":
+2. **Run the Appropriate Script:**
+   Depending on your needs, choose one of the scripts to run:
+
+   ### `RenameProject.ps1`
+   This script handles folder cleanup, content replacement, file renaming, and folder renaming.
+
    ```powershell
    .\RenameProject.ps1
+   ```
+
+   ### `RenameAndCleanProject.ps1`
+   This script includes all the features of `RenameProject.ps1` plus the removal of source control bindings and related files.
+
+   ```powershell
+   .\RenameAndCleanProject.ps1
    ```
 
 3. **Follow the Prompts:**
@@ -56,6 +68,8 @@ To run the script with the necessary permissions, you need to open PowerShell as
 4. **Watch the Script Work:**
    The script will then:
    - Delete `bin` and `obj` folders.
+   - Remove TFVC bindings from solution files (only in `RenameAndCleanProject.ps1`).
+   - Remove source control files (only in `RenameAndCleanProject.ps1`).
    - Replace the specified old content with new content in all applicable files.
    - Rename files and folders accordingly.
 
