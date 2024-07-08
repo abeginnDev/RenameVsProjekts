@@ -38,8 +38,8 @@ To run the script with the necessary permissions, you need to open PowerShell as
 
 1. **Clone the Repository:**
    ```sh
-   git clone https://github.com/yourusername/visual-studio-project-renaming.git
-   cd visual-studio-project-renaming
+   git clone https://github.com/abeginnDev/RenameVsProjekts.git
+   cd RenameVsProjekts
    ```
 
 2. **Run the Appropriate Script:**
