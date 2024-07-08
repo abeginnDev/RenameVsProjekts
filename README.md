@@ -1,4 +1,4 @@
-# RenameVsProjekts---
+# RenameVsProjekts
 
 # Visual Studio Project Renaming Script
 
